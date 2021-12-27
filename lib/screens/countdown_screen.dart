@@ -3,6 +3,7 @@ import 'package:countdown_calendar/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:countdown_calendar/constants.dart' as constants;
 
 class CountdownScreen extends StatefulWidget {
   const CountdownScreen({Key? key}) : super(key: key);
@@ -90,7 +91,7 @@ class _HomePageState extends State<CountdownScreen>
                       image: DecorationImage(
                         image: snapshot.data != null
                             ? FileImage(snapshot.data!)
-                            : const AssetImage('assets/images/background1.jpg')
+                            : const AssetImage(constants.defaultBackground)
                                 as ImageProvider,
                         fit: BoxFit.cover,
                       ),
@@ -133,15 +134,15 @@ class _HomePageState extends State<CountdownScreen>
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: [
-                                        timeCard(time: days, header: 'DAYS'),
+                                        timeCard(time: days, header: constants.textDays),
                                         const SizedBox(width: 10),
-                                        timeCard(time: hours, header: 'HOURS'),
-                                        const SizedBox(width: 10),
-                                        timeCard(
-                                            time: minutes, header: 'MINUTES'),
+                                        timeCard(time: hours, header: constants.textHours),
                                         const SizedBox(width: 10),
                                         timeCard(
-                                            time: seconds, header: 'SECONDS'),
+                                            time: minutes, header: constants.textMinutes),
+                                        const SizedBox(width: 10),
+                                        timeCard(
+                                            time: seconds, header: constants.textSeconds),
                                       ],
                                     );
                                   }),
