@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:countdown_calendar/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -160,8 +161,7 @@ class _HomePageState extends State<CountdownScreen>
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) {
-              return const SizedBox.shrink();
-              // return const SettingsScreen();
+              return const SettingsScreen();
             }),
           );
         },
