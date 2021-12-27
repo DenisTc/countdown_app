@@ -1,3 +1,4 @@
+import 'package:countdown_calendar/screens/background_screen.dart';
 import 'package:flutter/material.dart';
 import 'dart:async' show Future;
 import 'package:shared_preferences/shared_preferences.dart';
@@ -62,12 +63,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ],
                 ),
                 onTap: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(builder: (context) {
-                  //     return const BackgroundScreen();
-                  //   }),
-                  // );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) {
+                      return const BackgroundScreen();
+                    }),
+                  );
                 },
               ),
               const Divider(
