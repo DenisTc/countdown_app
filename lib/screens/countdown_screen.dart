@@ -38,10 +38,10 @@ class _HomePageState extends State<CountdownScreen>
   Future<File?> _getBackgroundFromSP() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     final directory = (await getApplicationDocumentsDirectory()).path;
-    if (prefs.getString('selectedBackground') != null) {
+    if (prefs.getString('background') != null) {
       return File(directory +
           '/' +
-          prefs.getString('selectedBackground')!.split('/').last);
+          prefs.getString('background')!.split('/').last);
     }
     return null;
   }
