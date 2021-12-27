@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:countdown_calendar/constants.dart' as constants;
 
 class BackgroundScreen extends StatefulWidget {
   const BackgroundScreen({Key? key}) : super(key: key);
@@ -22,7 +23,7 @@ class _BackgroundScreenState extends State<BackgroundScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Background'),
+        title: const Text(constants.textTitleBackgroundScreen),
         centerTitle: true,
         backgroundColor: Colors.black87,
       ),
@@ -42,7 +43,7 @@ class _BackgroundScreenState extends State<BackgroundScreen> {
                   color: Colors.white.withOpacity(0.2),
                 ),
                 child: const Text(
-                  'Select from gallery',
+                  constants.textBtnSelectImage,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,

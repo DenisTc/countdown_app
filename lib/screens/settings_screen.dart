@@ -1,7 +1,8 @@
 import 'package:countdown_calendar/screens/background_screen.dart';
 import 'package:flutter/material.dart';
-import 'dart:async' show Future;
+import 'dart:async';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:countdown_calendar/constants.dart' as constants;
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -13,7 +14,7 @@ class SettingsScreen extends StatefulWidget {
 class _SettingsScreenState extends State<SettingsScreen> {
   Future<String> _getLocationBackgroundFromSP() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getString('location') ?? 'Middle';
+    return prefs.getString('location') ?? constants.listLocationElements[1];
   }
 
   _setLocationBackgroundToSF(String text) async {
@@ -25,7 +26,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Settings'),
+        title: const Text(constants.textTitleSettingsScreen),
         centerTitle: true,
         backgroundColor: Colors.black87,
       ),
@@ -53,7 +54,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     Padding(
                       padding: EdgeInsets.all(10.0),
                       child: Text(
-                        'Background',
+                        constants.textMenuBackground,
                         style: TextStyle(
                           fontSize: 16,
                           color: Colors.white,
@@ -83,7 +84,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     child: Padding(
                       padding: EdgeInsets.all(10.0),
                       child: Text(
-                        'Location on screen',
+                        constants.textMenuLocation,
                         style: TextStyle(
                           fontSize: 16,
                           color: Colors.white,
@@ -102,11 +103,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             return DropdownButton(
                               underline: const SizedBox.shrink(),
                               value: snapshot.data.toString(),
-                              items: [
-                                'Top',
-                                'Middle',
-                                'Bottom'
-                              ].map<DropdownMenuItem<String>>((String value) {
+                              items: constants.listLocationElements
+                                  .map<DropdownMenuItem<String>>(
+                                      (String value) {
                                 return DropdownMenuItem<String>(
                                   value: value,
                                   child: Text(
@@ -125,7 +124,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             );
                           }
 
-                          return SizedBox.shrink();
+                          return const SizedBox.shrink();
                         }),
                   ),
                   const SizedBox(width: 10),
